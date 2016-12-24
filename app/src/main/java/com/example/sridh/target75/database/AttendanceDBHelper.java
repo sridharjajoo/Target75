@@ -3,6 +3,7 @@ package com.example.sridh.target75.database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Created by sridh on 24-12-2016.
@@ -25,13 +26,19 @@ final String SQL_CREATE_STRING="CREATE TABLE " + AttendanceContract.AttendanceEn
                                               + AttendanceContract.AttendanceEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                                               + AttendanceContract.AttendanceEntry.COLUMN_SUBJECT + " TEXT NOT NULL,"
                                               + AttendanceContract.AttendanceEntry.COLUMN_ABSENT +" INTEGER DEFAULT NULL,"
-                                              + AttendanceContract.AttendanceEntry.COLUMN_PRESENT +" INTEGER DEFAULT NULL"
-                                              + ");";
+                                              + AttendanceContract.AttendanceEntry.COLUMN_PRESENT +" INTEGER DEFAULT NULL,"
+                                              + AttendanceContract.AttendanceEntry.COLUMN_MONDAY + " BOOL,"
+                                              + AttendanceContract.AttendanceEntry.COLUMN_TUESDAY +  "BOOL,"
+                                              + AttendanceContract.AttendanceEntry.COLUMN_WEDNESDAY + " BOO,"
+                                              + AttendanceContract.AttendanceEntry.COLUMN_THURSDAY + " BOOL,"
+                                              + AttendanceContract.AttendanceEntry.COLUMN_FRIDAY + " BOOL "+ ");";
  sqLiteDatabase.execSQL(SQL_CREATE_STRING);
+        Log.v("","databasr +" + SQL_CREATE_STRING);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ AttendanceContract.AttendanceEntry.TABLE_NAME);
+        onCreate(sqLiteDatabase);
     }
 }

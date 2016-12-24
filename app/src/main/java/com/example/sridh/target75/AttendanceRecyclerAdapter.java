@@ -20,10 +20,17 @@ public class AttendanceRecyclerAdapter extends RecyclerView.Adapter<AttendanceRe
 
     private Context mContext;
     private Cursor mCursor;
+    final private ListItemClickListener mItemClickListener;
 
-    public AttendanceRecyclerAdapter(Context context, Cursor cursor) {
+    public interface ListItemClickListener{
+        void onListItemClick(int clickeditemindex);
+    }
+
+    public AttendanceRecyclerAdapter(Context context, Cursor cursor,ListItemClickListener listItemClickListener) {
         this.mContext = context;
         this.mCursor = cursor;
+        this.mItemClickListener=listItemClickListener;
+
     }
 
     public class AttendanceViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -34,10 +41,13 @@ public class AttendanceRecyclerAdapter extends RecyclerView.Adapter<AttendanceRe
 
             super(itemView);
             mSubjectView = (TextView) itemView.findViewById(R.id.subject_name);
+            itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
+            int clickedposition = getAdapterPosition();
+            mItemClickListener.onListItemClick(clickedposition);
         }
     }
 

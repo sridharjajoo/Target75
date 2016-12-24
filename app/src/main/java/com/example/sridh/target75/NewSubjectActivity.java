@@ -16,6 +16,8 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.Checkable;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -34,12 +36,17 @@ public class NewSubjectActivity extends AppCompatActivity {
     private SQLiteDatabase mdb;
     private String subject_name;
     private Cursor cursor;
+    private CheckBox checkBox1,checkBox2,checkBox3,checkBox4,checkBox5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_subject);
         btn = (Button) findViewById(R.id.button);
-
+        checkBox1 = (CheckBox) findViewById(R.id.checkbox1);
+        checkBox2 = (CheckBox) findViewById(R.id.checkBox2);
+        checkBox3 = (CheckBox) findViewById(R.id.checkBox3);
+        checkBox4 = (CheckBox) findViewById(R.id.checkBox4);
+        checkBox5 = (CheckBox) findViewById(R.id.checkBox5);
 
         editText = (EditText) findViewById(R.id.edit_text); //to read subject name
 
@@ -60,10 +67,46 @@ public class NewSubjectActivity extends AppCompatActivity {
 
         AttendanceDBHelper dbhelper = new AttendanceDBHelper(this);
         mdb = dbhelper.getWritableDatabase();
-
-        subject_name = editText.getText().toString();
         ContentValues values = new ContentValues();
+        subject_name = editText.getText().toString();
         values.put(AttendanceContract.AttendanceEntry.COLUMN_SUBJECT,subject_name);
+
+/*        if(checkBox1.isChecked()){
+            values.put(AttendanceContract.AttendanceEntry.COLUMN_MONDAY,true);
+        }
+        else
+            values.put(AttendanceContract.AttendanceEntry.COLUMN_MONDAY,false);
+
+        if(checkBox2.isChecked()){
+
+            values.put(AttendanceContract.AttendanceEntry.COLUMN_TUESDAY,true);
+        }
+
+        else
+            values.put(AttendanceContract.AttendanceEntry.COLUMN_TUESDAY,false);
+        if(checkBox3.isChecked()){
+
+            values.put(AttendanceContract.AttendanceEntry.COLUMN_WEDNESDAY,true);
+        }
+
+        else
+            values.put(AttendanceContract.AttendanceEntry.COLUMN_WEDNESDAY,false);
+        if(checkBox4.isChecked()){
+
+            values.put(AttendanceContract.AttendanceEntry.COLUMN_THURSDAY,true);
+        }
+
+        else
+            values.put(AttendanceContract.AttendanceEntry.COLUMN_THURSDAY,false);
+        if(checkBox5.isChecked()){
+
+            values.put(AttendanceContract.AttendanceEntry.COLUMN_FRIDAY,true);
+        }
+
+        else
+            values.put(AttendanceContract.AttendanceEntry.COLUMN_FRIDAY,false);
+
+*/
         long rowId =mdb.insert(AttendanceContract.AttendanceEntry.TABLE_NAME,null,values);
 
         if(rowId==-1){
