@@ -24,14 +24,14 @@ public class AttendanceDBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 final String SQL_CREATE_STRING="CREATE TABLE " + AttendanceContract.AttendanceEntry.TABLE_NAME + " ("
                                               + AttendanceContract.AttendanceEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                                              + AttendanceContract.AttendanceEntry.COLUMN_SUBJECT + " TEXT NOT NULL,"
-                                              + AttendanceContract.AttendanceEntry.COLUMN_ABSENT +" INTEGER DEFAULT NULL,"
-                                              + AttendanceContract.AttendanceEntry.COLUMN_PRESENT +" INTEGER DEFAULT NULL,"
-                                              + AttendanceContract.AttendanceEntry.COLUMN_MONDAY + " BOOL,"
-                                              + AttendanceContract.AttendanceEntry.COLUMN_TUESDAY +  "BOOL,"
-                                              + AttendanceContract.AttendanceEntry.COLUMN_WEDNESDAY + " BOO,"
-                                              + AttendanceContract.AttendanceEntry.COLUMN_THURSDAY + " BOOL,"
-                                              + AttendanceContract.AttendanceEntry.COLUMN_FRIDAY + " BOOL "+ ");";
+                                              + AttendanceContract.AttendanceEntry.COLUMN_SUBJECT + " TEXT,"
+                                              + AttendanceContract.AttendanceEntry.COLUMN_ABSENT +" INTEGER,"
+                                              + AttendanceContract.AttendanceEntry.COLUMN_PRESENT +" INTEGER,"
+                                              + AttendanceContract.AttendanceEntry.COLUMN_MONDAY + " BOOLEAN,"
+                                              + AttendanceContract.AttendanceEntry.COLUMN_TUESDAY +  " BOOLEAN,"
+                                              + AttendanceContract.AttendanceEntry.COLUMN_WEDNESDAY + " BOOLEAN,"
+                                              + AttendanceContract.AttendanceEntry.COLUMN_THURSDAY + " BOOLEAN,"
+                                              + AttendanceContract.AttendanceEntry.COLUMN_FRIDAY + " BOOLEAN "+ ");";
  sqLiteDatabase.execSQL(SQL_CREATE_STRING);
         Log.v("","databasr +" + SQL_CREATE_STRING);
     }

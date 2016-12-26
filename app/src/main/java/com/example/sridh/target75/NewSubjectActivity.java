@@ -67,15 +67,16 @@ public class NewSubjectActivity extends AppCompatActivity {
 
         AttendanceDBHelper dbhelper = new AttendanceDBHelper(this);
         mdb = dbhelper.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        subject_name = editText.getText().toString();
-        values.put(AttendanceContract.AttendanceEntry.COLUMN_SUBJECT,subject_name);
 
-/*        if(checkBox1.isChecked()){
+        ContentValues values = new ContentValues();
+
+
+       if(checkBox1.isChecked()){
             values.put(AttendanceContract.AttendanceEntry.COLUMN_MONDAY,true);
         }
         else
             values.put(AttendanceContract.AttendanceEntry.COLUMN_MONDAY,false);
+
 
         if(checkBox2.isChecked()){
 
@@ -98,6 +99,7 @@ public class NewSubjectActivity extends AppCompatActivity {
 
         else
             values.put(AttendanceContract.AttendanceEntry.COLUMN_THURSDAY,false);
+
         if(checkBox5.isChecked()){
 
             values.put(AttendanceContract.AttendanceEntry.COLUMN_FRIDAY,true);
@@ -106,7 +108,12 @@ public class NewSubjectActivity extends AppCompatActivity {
         else
             values.put(AttendanceContract.AttendanceEntry.COLUMN_FRIDAY,false);
 
-*/
+        subject_name = editText.getText().toString();
+        values.put(AttendanceContract.AttendanceEntry.COLUMN_SUBJECT,subject_name);
+        values.put(AttendanceContract.AttendanceEntry.COLUMN_PRESENT,0);
+        values.put(AttendanceContract.AttendanceEntry.COLUMN_ABSENT,0);
+
+        Log.v("NewSubjectSActivity","NewSubjectActivity " + values);
         long rowId =mdb.insert(AttendanceContract.AttendanceEntry.TABLE_NAME,null,values);
 
         if(rowId==-1){
@@ -115,7 +122,7 @@ public class NewSubjectActivity extends AppCompatActivity {
         }
         else
             Toast.makeText(this,"Successful",Toast.LENGTH_SHORT).show();
-
+            Log.v("NewSubjectActivity","rowId =" + rowId);
     }
 
 }

@@ -15,50 +15,57 @@
         android:id="@+id/edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:layout_marginBottom="10dp"
         android:hint="Enter Subject Name"
-        android:layout_marginBottom="10dp"/>
+
+        android:textSize="16sp" />
+
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="enter"
         android:layout_gravity="center"
-        android:textSize="16sp"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginBottom="24dp"
+        android:text="enter"
+        android:textSize="16sp" />
 
     <CheckBox
-        android:text="Monday"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/checkbox1"
-        android:layout_marginBottom="10dp"/>
-
-    <CheckBox
-        android:text="Tuesday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Monday" />
+
+    <CheckBox
         android:id="@+id/checkBox2"
-        android:layout_marginBottom="10dp"/>
-
-    <CheckBox
-        android:text="Wednesday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Tuesday" />
+
+    <CheckBox
         android:id="@+id/checkBox3"
-        android:layout_marginBottom="10dp"/>
-
-    <CheckBox
-        android:text="Thursday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Wednesday" />
+
+    <CheckBox
         android:id="@+id/checkBox4"
-        android:layout_marginBottom="10dp"/>
-
-    <CheckBox
-        android:text="Friday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/checkBox5" />
+        android:layout_marginBottom="10dp"
+        android:text="Thursday" />
 
+    <CheckBox
+        android:id="@+id/checkBox5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Friday" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="Prof. Name:" />
 </LinearLayout>
