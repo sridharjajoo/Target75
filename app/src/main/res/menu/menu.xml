@@ -5,7 +5,15 @@
     android:title="Add New Subject"
     android:visible="true"
     android:id="@+id/new_subject"
-    >
+    />
+    <item
+        android:title="Reminder Time"
+        android:visible="true"
+        android:id="@+id/reminder_time">
 
 </item>
+    <item
+        android:title="Reset Databse"
+        android:visible="true"
+        android:id="@+id/reset_database"></item>
 </menu>

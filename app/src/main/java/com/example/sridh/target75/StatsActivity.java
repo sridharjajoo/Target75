@@ -115,7 +115,7 @@ Log.v("StatsActivity","Position is " + position);
 
             absent_count.setText("" +cursor.getInt(cursor.getColumnIndex(AttendanceContract.AttendanceEntry.COLUMN_ABSENT)));
             flag=-1;
-
+            finish();
 
         }
         else if(flag==1)
@@ -128,6 +128,7 @@ Log.v("StatsActivity","Position is " + position);
 
             present_count.setText("" +cursor.getInt(cursor.getColumnIndex(AttendanceContract.AttendanceEntry.COLUMN_PRESENT)));
             flag=-1;
+            finish();
         }
     }
 
