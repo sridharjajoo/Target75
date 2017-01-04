@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Target75</string>
+    <string name="notification_heading">Reminder</string>
+    <string name="notification_detail">Add Attendence</string>
 </resources>
